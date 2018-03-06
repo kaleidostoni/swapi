@@ -1,9 +1,3 @@
-function loadPage(){
-apiRequest();
-};
-
-
-
 
 function apiRequest(){
     $.ajax({
@@ -19,8 +13,6 @@ function getData (json){
     paintData(results);
 };
 
-  
-
 function paintData (result){
     template = ' ';
     let charactersTemplate = ' ';   
@@ -33,37 +25,36 @@ function paintData (result){
         //console.log(characters);
         let characterTemplate = ' ';
       characters.forEach(character=>{
-          characterTemplate += `<div>${character}</div>`
+          characterTemplate += `<p>
+          <a class="modal-trigger" href="#modal1">${character}</a>
+          </p>`
       })
     
         template += `<div><h1>Name: ${name}</h1>
         <h3>Episode: ${episodeID}</h3>
         <h3>Characters: </h3>
         <section id="characters">
-        <a href=${characterTemplate}>${characterTemplate}</a>
+        <div>${characterTemplate}</div>
         </section>` 
       
-        // $.ajax({
-        //     url: characters
-        // }).done(gettingCharacters)
+        $.ajax({
+            url: characters
+        }).done(gettingCharacters)
       
     })
     $('#container').html(template);
    };
-
 
    function gettingCharacters(json){
     console.log(json);
    };
 
 
-
-
-
-
-
 function failedRequest(error){
     console.log('Ha habido un error');
 }
 
-$(document).ready(loadPage);
+$(document).ready(function(){
+    $('#modal1').modal();
+    apiRequest();
+  });

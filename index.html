@@ -5,23 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Swapi</title>
-    <link rel="icon" type="image/icon" href="assets/images/sar-wars.png" />
+    <link rel="icon" type="image/icon" href="assets/images/star-wars.png" />
 </head>
 
 <body>
+    <section id="container" class="row"></section>
 
-    <section id="container" class="row">
-
-   
-
-    </section>
-
-
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h1 id="title"></h1>
+            <h3 id="name"></h3>
+            <h3 id="heght"></h3>
+            <h3 id="mass"></h3>
+            <h3 id="hair-color"></h3>
+            <h3 id="skin-color"></h3>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="app.js"></script>
 </body>
 
