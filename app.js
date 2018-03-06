@@ -31,27 +31,24 @@ function paintData (result){
         // console.log(episodeID);
         let characters = movie.characters;
         //console.log(characters);
+        let characterTemplate = ' ';
+      characters.forEach(character=>{
+          characterTemplate += `<div>${character}</div>`
+      })
     
         template += `<div><h1>Name: ${name}</h1>
         <h3>Episode: ${episodeID}</h3>
         <h3>Characters: </h3>
-        <section id="characters"></section>
-        </div>` 
+        <section id="characters">
+        <a href=${characterTemplate}>${characterTemplate}</a>
+        </section>` 
       
         // $.ajax({
         //     url: characters
         // }).done(gettingCharacters)
       
-        function addingCharacters (characters,template){
-            console.log(characters);
-              let charactersTemplate = ' ';   
-              characters.forEach(character => {
-                  let characterURL = character; 
-              //console.log(characterURL);
-                  charactersTemplate += `<p>${characterURL}</p>`  
-                  }); $('template').append(charactersTemplate);
-          }
-    });$('#container').html(template);
+    })
+    $('#container').html(template);
    };
 
 
