@@ -6,6 +6,7 @@ function apiRequest(){
     .fail(failedRequest)
 };
 
+
 function getData (json){
     // console.log(json);
     let results = json.results;
@@ -47,6 +48,16 @@ function paintData (result){
 
    function gettingCharacters(json){
     console.log(json);
+    let name = $('#name');
+    let height = $('#height');
+    let mass = $('#mass');
+    let hairColor = $('#hair-color');
+    let skinColor = $('#skin-color');
+    name.text(json.name);
+    height.text(json.height);
+    mass.text(json.mass);
+    hairColor.text(json.hair_color);
+    skinColor.text(json.skin_color);
    };
 
 
