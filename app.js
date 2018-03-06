@@ -26,26 +26,47 @@ function paintData (result){
         //console.log(characters);
         let characterTemplate = ' ';
       characters.forEach(character=>{
-          characterTemplate += `<p>
-          <a class="modal-trigger" href="#modal1">${character}</a>
-          </p>`
+          characterTemplate += `  <a class="modal-trigger" href="#modal1">
+         <li class="list-element" data-url="${character}"> ${ character}</li>
+       </a>`
+     
       })
     
         template += `<div><h1>Name: ${name}</h1>
         <h3>Episode: ${episodeID}</h3>
         <h3>Characters: </h3>
         <section id="characters">
-        <div>${characterTemplate}</div>
+        <ul>${characterTemplate}</ul>
         </section>` 
       
-        $.ajax({
-            url: characters
-        }).done(gettingCharacters)
+       
       
     })
     $('#container').html(template);
+   let elementLi = document.getElementsByClassName('list-element'); 
+    addingEventToLi(elementLi);
    };
 
+   function addingEventToLi (elementLi){
+       //console.log(elementLi);
+       let arrayLi = Array.from(elementLi);
+       arrayLi.forEach(li=>{
+        li.addEventListener('click',gettingCharacter);
+       })
+       //console.log(arrayLi);
+     
+   }
+
+   function gettingCharacter(e){
+        e.preventDefault;
+     let newURL = e.target.dataset.url;
+     console.log(newURL);
+
+          $.ajax({
+            url:newURL
+        }).done(gettingCharacters)
+
+   }
    function gettingCharacters(json){
     console.log(json);
     let name = $('#name');
